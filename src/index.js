@@ -5,10 +5,8 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import { Provider } from 'mobx-react';
 
-import testStore from './stores/TestStore';
-
 ReactDOM.render(
-  <Provider TestStore={testStore}>
+  <Provider>
     <App />
   </Provider>,
   document.getElementById('root')
