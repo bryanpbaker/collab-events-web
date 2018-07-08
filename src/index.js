@@ -4,9 +4,10 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import { Provider } from 'mobx-react';
+import UserStore from './stores/UserStore';
 
 ReactDOM.render(
-  <Provider>
+  <Provider UserStore={new UserStore()}>
     <App />
   </Provider>,
   document.getElementById('root')

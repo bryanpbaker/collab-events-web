@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 import LoginForm from './LoginForm';
+import { observer, inject } from 'mobx-react';
 
 const StyledLogin = styled.div`
   background: white;
@@ -31,6 +32,8 @@ const StyledLogin = styled.div`
   }
 `;
 
+@inject('UserStore')
+@observer
 class Login extends Component {
   async loginWithUsername(creds) {
     const res = await fetch(`${process.env.REACT_APP_API_URL}/users/login`, {
@@ -51,6 +54,8 @@ class Login extends Component {
     return (
       <StyledLogin className={`StyledLogin ${this.props.show ? 'show' : ''}`}>
         <h2>Login or Sign Up</h2>
+        <h1>{this.props.UserStore.user}</h1>
+        <button onClick={this.props.UserStore.change}>Change</button>
         <LoginForm loginWithUsername={this.loginWithUsername} />
         <br />
         - or -
