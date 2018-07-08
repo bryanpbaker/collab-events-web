@@ -43,6 +43,7 @@ class Login extends Component {
     });
     const user = await res.json();
 
+    // console log user for now
     console.log(user);
   }
 
