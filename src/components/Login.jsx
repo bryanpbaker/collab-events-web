@@ -32,8 +32,18 @@ const StyledLogin = styled.div`
 `;
 
 class Login extends Component {
-  loginWithUsername(creds) {
-    console.log(creds);
+  async loginWithUsername(creds) {
+    const res = await fetch(`${process.env.REACT_APP_API_URL}/users/login`, {
+      method: 'POST',
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json; charset=utf-8'
+      },
+      body: JSON.stringify(creds)
+    });
+    const user = await res.json();
+
+    console.log(user);
   }
 
   render() {
