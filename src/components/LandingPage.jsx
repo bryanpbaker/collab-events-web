@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { inject, observer } from 'mobx-react';
 // Import components
 import Header from './Header';
 import Hero from './Hero';
