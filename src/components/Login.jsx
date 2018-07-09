@@ -40,7 +40,6 @@ class Login extends Component {
   };
 
   render() {
-    console.log(this.props.UserStore.token);
     return (
       <StyledLogin className={`StyledLogin ${this.props.show ? 'show' : ''}`}>
         <h2>Login or Sign Up</h2>

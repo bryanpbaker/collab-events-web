@@ -7,7 +7,7 @@ import { Provider } from 'mobx-react';
 import UserStore from './stores/UserStore';
 
 ReactDOM.render(
-  <Provider UserStore={new UserStore()}>
+  <Provider UserStore={UserStore}>
     <App />
   </Provider>,
   document.getElementById('root')

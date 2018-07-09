@@ -8,6 +8,7 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Login from './Login';
+import { inject, observer } from 'mobx-react';
 
 const StyledAppBar = styled(AppBar)`
   .AppBar {
@@ -25,6 +26,8 @@ const StyledAppBar = styled(AppBar)`
   }
 `;
 
+@inject('UserStore')
+@observer
 class Header extends Component {
   constructor(props) {
     super(props);
@@ -45,7 +48,7 @@ class Header extends Component {
   render() {
     return (
       <StyledAppBar>
-        <Login show={this.state.showLogin} />
+        {!this.props.UserStore.user && <Login show={this.state.showLogin} />}
         <AppBar position="static" className="AppBar">
           <Toolbar>
             <IconButton
@@ -58,9 +61,11 @@ class Header extends Component {
             <Typography variant="title" color="inherit" className="Typography">
               CollabEvents
             </Typography>
-            <Button onClick={this.toggleLogin} color="inherit">
-              Login
-            </Button>
+            {!this.props.UserStore.user && (
+              <Button onClick={this.toggleLogin} color="inherit">
+                Login
+              </Button>
+            )}
           </Toolbar>
         </AppBar>
       </StyledAppBar>
