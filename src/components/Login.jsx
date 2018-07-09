@@ -43,7 +43,10 @@ class Login extends Component {
     return (
       <StyledLogin className={`StyledLogin ${this.props.show ? 'show' : ''}`}>
         <h2>Login or Sign Up</h2>
-        <LoginForm loginWithUsername={this.loginWithUsername} />
+        <LoginForm
+          requestPending={this.props.UserStore.requestPending}
+          loginWithUsername={this.loginWithUsername}
+        />
         <br />
         - or -
         <br />

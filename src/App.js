@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import './Normalize.css';
 import './App.css';
 // import components
 import LandingPage from './components/LandingPage';
+import Dashboard from './components/Dashboard';
 // create app theme
 import { ThemeProvider } from 'styled-components';
 
@@ -31,7 +33,12 @@ class App extends Component {
     return (
       <ThemeProvider theme={theme}>
         <MuiThemeProvider theme={muiTheme}>
-          <LandingPage />
+          <Router>
+            <Switch>
+              <Route exact path="/" component={LandingPage} />
+              <Route exact patch="dashboard" component={Dashboard} />
+            </Switch>
+          </Router>
         </MuiThemeProvider>
       </ThemeProvider>
     );

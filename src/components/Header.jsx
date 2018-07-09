@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { Redirect } from 'react-router-dom';
 // import components
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -49,6 +50,7 @@ class Header extends Component {
     return (
       <StyledAppBar>
         {!this.props.UserStore.user && <Login show={this.state.showLogin} />}
+        {this.props.UserStore.user && <Redirect to="dashboard" />}
         <AppBar position="static" className="AppBar">
           <Toolbar>
             <IconButton

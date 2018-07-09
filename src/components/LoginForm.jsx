@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
+// import material ui components
 import Button from '@material-ui/core/Button';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
@@ -6,6 +8,18 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import FormControl from '@material-ui/core/FormControl';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import Lock from '@material-ui/icons/Lock';
+import CircularProgress from '@material-ui/core/CircularProgress';
+
+const ButtonWrapper = styled.div`
+  position: relative;
+
+  .CircularProgress {
+    color: ${props => props.theme.accent};
+    left: 30px;
+    position: absolute;
+    top: 5px;
+  }
+`;
 
 class LoginForm extends Component {
   constructor(props) {
@@ -61,11 +75,19 @@ class LoginForm extends Component {
             onChange={this.handleChange('password')}
           />
         </FormControl>
-        <div>
-          <Button variant="contained" color="secondary" type="submit">
+        <ButtonWrapper>
+          <Button
+            variant="contained"
+            color="secondary"
+            type="submit"
+            disabled={this.props.requestPending}
+          >
             Login
           </Button>
-        </div>
+          {this.props.requestPending && (
+            <CircularProgress size={24} className="CircularProgress" />
+          )}
+        </ButtonWrapper>
       </form>
     );
   }
