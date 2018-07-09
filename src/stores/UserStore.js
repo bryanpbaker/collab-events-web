@@ -1,15 +1,19 @@
 import { action, observable } from 'mobx';
+import UserService from '../services/UserService';
 
 class UserStore {
   constructor() {
-    this.change = this.change.bind(this);
+    this.login = this.login.bind(this);
+    this.UserService = new UserService();
   }
 
-  @observable user = 'bryan';
+  @observable token = '';
 
   @action
-  change() {
-    this.user = 'bekah';
+  async login(creds) {
+    this.user = await this.UserService.login(creds);
+    this.token = this.user.token;
+    console.log(this.token);
   }
 }
 

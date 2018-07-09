@@ -35,27 +35,15 @@ const StyledLogin = styled.div`
 @inject('UserStore')
 @observer
 class Login extends Component {
-  async loginWithUsername(creds) {
-    const res = await fetch(`${process.env.REACT_APP_API_URL}/users/login`, {
-      method: 'POST',
-      mode: 'cors',
-      headers: {
-        'Content-Type': 'application/json; charset=utf-8'
-      },
-      body: JSON.stringify(creds)
-    });
-    const user = await res.json();
-
-    // console log user for now
-    console.log(user);
-  }
+  loginWithUsername = creds => {
+    this.props.UserStore.login(creds);
+  };
 
   render() {
+    console.log(this.props.UserStore.token);
     return (
       <StyledLogin className={`StyledLogin ${this.props.show ? 'show' : ''}`}>
         <h2>Login or Sign Up</h2>
-        <h1>{this.props.UserStore.user}</h1>
-        <button onClick={this.props.UserStore.change}>Change</button>
         <LoginForm loginWithUsername={this.loginWithUsername} />
         <br />
         - or -
