@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Redirect } from 'react-router-dom';
 // import components
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -9,7 +8,6 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Login from './Login';
-import { inject, observer } from 'mobx-react';
 
 const StyledAppBar = styled(AppBar)`
   .AppBar {
@@ -27,9 +25,7 @@ const StyledAppBar = styled(AppBar)`
   }
 `;
 
-@inject('UserStore')
-@observer
-class Header extends Component {
+class LandingPageHeader extends Component {
   constructor(props) {
     super(props);
 
@@ -49,8 +45,7 @@ class Header extends Component {
   render() {
     return (
       <StyledAppBar>
-        {!this.props.UserStore.user && <Login show={this.state.showLogin} />}
-        {this.props.UserStore.user && <Redirect to="dashboard" />}
+        <Login show={this.state.showLogin} />
         <AppBar position="static" className="AppBar">
           <Toolbar>
             <IconButton
@@ -63,11 +58,9 @@ class Header extends Component {
             <Typography variant="title" color="inherit" className="Typography">
               CollabEvents
             </Typography>
-            {!this.props.UserStore.user && (
-              <Button onClick={this.toggleLogin} color="inherit">
-                Login
-              </Button>
-            )}
+            <Button onClick={this.toggleLogin} color="inherit">
+              Login
+            </Button>
           </Toolbar>
         </AppBar>
       </StyledAppBar>
@@ -75,4 +68,4 @@ class Header extends Component {
   }
 }
 
-export default Header;
+export default LandingPageHeader;

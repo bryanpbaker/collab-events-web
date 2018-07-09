@@ -20,6 +20,17 @@ class UserService {
       return false;
     }
   }
+
+  async authorizeUser(token) {
+    const res = await fetch(`${this.endpoint}/authorize`, {
+      method: 'GET',
+      headers: {
+        Authorization: `bearer ${token}`
+      }
+    });
+
+    return res.status;
+  }
 }
 
 export default UserService;

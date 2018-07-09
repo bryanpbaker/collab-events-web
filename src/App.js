@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import PrivateRoute from './components/PrivateRoute';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import './Normalize.css';
 import './App.css';
@@ -36,7 +37,7 @@ class App extends Component {
           <Router>
             <Switch>
               <Route exact path="/" component={LandingPage} />
-              <Route exact patch="dashboard" component={Dashboard} />
+              <PrivateRoute exact patch="dashboard" component={Dashboard} />
             </Switch>
           </Router>
         </MuiThemeProvider>
