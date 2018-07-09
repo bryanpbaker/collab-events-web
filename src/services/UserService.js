@@ -1,6 +1,10 @@
 class UserService {
   endpoint = `${process.env.REACT_APP_API_URL}/users`;
 
+  /**
+   * log a user in using username and password
+   * @param {Object} user credentials
+   */
   async login(creds) {
     try {
       const res = await fetch(`${this.endpoint}/login`, {
@@ -21,6 +25,10 @@ class UserService {
     }
   }
 
+  /**
+   * authorize a user with a jwt
+   * @param {String} token
+   */
   async authorizeUser(token) {
     const res = await fetch(`${this.endpoint}/authorize`, {
       method: 'GET',
