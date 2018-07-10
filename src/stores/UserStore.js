@@ -42,10 +42,17 @@ class UserStore {
       const { token } = JSON.parse(localStorage.getItem('authenticatedUser'));
       const auth = await this.UserService.authorizeUser(token);
       this.isAuthorized = auth === 200;
-      this.requestPending = true;
+      this.requestPending = false;
     }
 
     return false;
+  };
+
+  @action
+  logout = async () => {
+    localStorage.removeItem('authenticatedUser');
+    this.isAuthorized = false;
+    this.requestPending = false;
   };
 }
 
