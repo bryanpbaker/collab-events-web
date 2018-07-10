@@ -8,6 +8,10 @@ class PrivateRoute extends Component {
   render() {
     const { component: ParamComponent, ...rest } = this.props;
 
+    if (this.props.UserStore.isAuthorized === null) {
+      return <div>loading...</div>;
+    }
+
     return this.props.UserStore.isAuthorized ? (
       <Route {...rest} render={props => <ParamComponent {...props} />} />
     ) : (

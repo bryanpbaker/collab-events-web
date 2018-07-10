@@ -38,6 +38,7 @@ class DashboardHeader extends Component {
               color="inherit"
               aria-label="Menu"
               className="IconButton"
+              onClick={this.props.toggleSidebar}
             >
               <MenuIcon />
             </IconButton>

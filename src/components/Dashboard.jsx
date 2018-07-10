@@ -11,11 +11,20 @@ class Dashboard extends Component {
     sidebarOpen: true
   };
 
+  toggleSidebar = () => {
+    this.setState({
+      sidebarOpen: !this.state.sidebarOpen
+    });
+  };
+
   render() {
     return (
       <div className="Dashboard">
-        <DashboardHeader UserStore={this.props.UserStore} />
-        <Sidebar>
+        <DashboardHeader
+          toggleSidebar={this.toggleSidebar}
+          UserStore={this.props.UserStore}
+        />
+        <Sidebar sidebarOpen={this.state.sidebarOpen}>
           <h1>Hello</h1>
         </Sidebar>
       </div>
