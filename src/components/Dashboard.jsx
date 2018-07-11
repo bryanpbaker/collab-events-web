@@ -24,9 +24,7 @@ class Dashboard extends Component {
           toggleSidebar={this.toggleSidebar}
           UserStore={this.props.UserStore}
         />
-        <Sidebar sidebarOpen={this.state.sidebarOpen}>
-          <h1>Hello</h1>
-        </Sidebar>
+        <Sidebar sidebarOpen={this.state.sidebarOpen} />
       </div>
     );
   }
