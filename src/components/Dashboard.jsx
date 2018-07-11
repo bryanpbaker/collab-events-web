@@ -8,7 +8,7 @@ import Sidebar from './Sidebar';
 @observer
 class Dashboard extends Component {
   state = {
-    sidebarOpen: true
+    sidebarOpen: false
   };
 
   toggleSidebar = () => {

@@ -6,8 +6,6 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import Divider from '@material-ui/core/Divider';
-import GroupWorkIcon from '@material-ui/icons/GroupWork';
 import GroupWork from '@material-ui/icons/GroupWork';
 import Event from '@material-ui/icons/Event';
 
@@ -22,6 +20,10 @@ const StyledSidebar = styled.div`
   top: 64px;
   transition: 0.3s left ease-in;
   width: 320px;
+
+  .ListItemIcon {
+    margin-right: 0;
+  }
 
   &.open {
     left: 0;
@@ -38,13 +40,13 @@ class Sidebar extends Component {
         <List component="nav">
           <ListItem button>
             <ListItemText primary="Groups" />
-            <ListItemIcon>
+            <ListItemIcon className="ListItemIcon">
               <GroupWork />
             </ListItemIcon>
           </ListItem>
           <ListItem button>
             <ListItemText primary="Events" />
-            <ListItemIcon>
+            <ListItemIcon className="ListItemIcon">
               <Event />
             </ListItemIcon>
           </ListItem>
