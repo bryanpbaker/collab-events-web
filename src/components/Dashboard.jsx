@@ -3,6 +3,7 @@ import { inject, observer } from 'mobx-react';
 // import components
 import DashboardHeader from './DashboardHeader';
 import Sidebar from './Sidebar';
+import MainContent from './MainContent';
 
 @inject('UserStore')
 @observer
@@ -25,6 +26,9 @@ class Dashboard extends Component {
           UserStore={this.props.UserStore}
         />
         <Sidebar sidebarOpen={this.state.sidebarOpen} />
+        <MainContent>
+          <h2>Hello</h2>
+        </MainContent>
       </div>
     );
   }

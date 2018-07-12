@@ -14,12 +14,18 @@ const StyledSidebar = styled.div`
   border-right: 1px solid ${props => lighten(0.3, props.theme.gray)}
   box-sizing: border-box;
   height: calc(100% - 64px);
-  left: -256px;
+  left: -100vw;
   padding-top: 20px;
   position: fixed;
   top: 64px;
   transition: 0.3s left ease-in;
-  width: 320px;
+  z-index: 2;
+  width: 100vw;
+
+  @media(min-width: 768px) {
+    left: -256px;
+    width: 320px;  
+  }
 
   .ListItemIcon {
     margin-right: 0;
