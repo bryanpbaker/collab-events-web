@@ -37,7 +37,7 @@ class App extends Component {
           <Router>
             <Switch>
               <Route exact path="/" component={LandingPage} />
-              <PrivateRoute exact patch="dashboard" component={Dashboard} />
+              <PrivateRoute path="/dashboard" component={Dashboard} />
             </Switch>
           </Router>
         </MuiThemeProvider>

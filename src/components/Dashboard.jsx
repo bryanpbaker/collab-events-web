@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
+import { Route, Link } from 'react-router-dom';
 import { inject, observer } from 'mobx-react';
 // import components
 import DashboardHeader from './DashboardHeader';
 import Sidebar from './Sidebar';
 import MainContent from './MainContent';
+import Summary from './Summary';
+import Groups from './Groups';
 
 @inject('UserStore')
 @observer
@@ -27,7 +30,8 @@ class Dashboard extends Component {
         />
         <Sidebar sidebarOpen={this.state.sidebarOpen} />
         <MainContent>
-          <h2>Hello</h2>
+          <Route exact path="/dashboard" component={Summary} />
+          <Route exact path="/dashboard/groups" component={Groups} />
         </MainContent>
       </div>
     );

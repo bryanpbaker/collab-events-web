@@ -12,7 +12,7 @@ class UserStore {
     }
   }
 
-  @observable user;
+  @observable userProfile;
   @observable requestPending = false;
   @observable isAuthorized = null;
 
@@ -25,26 +25,40 @@ class UserStore {
     const auth = await this.UserService.login(creds);
 
     if (auth) {
-      this.user = auth.user;
-      localStorage.setItem('authenticatedUser', JSON.stringify(auth.user));
+      this.userProfile = auth.user.profile;
       this.isAuthorized = true;
+      localStorage.setItem('authenticatedUser', JSON.stringify(auth.user));
+
       this.requestPending = false;
     }
   };
 
   /**
-   * verify the user's JWT
+   * verify the user's JWT and set this.userProfile
    */
   @action
   authorize = async () => {
-    if (localStorage.getItem('authenticatedUser')) {
+    const localStorageUser = JSON.parse(
+      localStorage.getItem('authenticatedUser')
+    );
+
+    if (localStorageUser) {
       this.requestPending = true;
-      const { token } = JSON.parse(localStorage.getItem('authenticatedUser'));
-      const auth = await this.UserService.authorizeUser(token);
+      const auth = await this.UserService.authorizeUser(localStorageUser.token);
       this.isAuthorized = auth === 200;
       this.requestPending = false;
+
+      // if the localStorage user is good
+      // set it to this.userProfile
+      if (this.isAuthorized) {
+        this.userProfile = localStorageUser.profile;
+      }
+
+      return true;
     }
 
+    // if there's nothing in localStorage - set isAuthorized to false
+    this.isAuthorized = false;
     return false;
   };
 

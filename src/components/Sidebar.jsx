@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { lighten } from 'polished';
 // import material ui components
@@ -44,12 +45,14 @@ class Sidebar extends Component {
         className={`Sidebar ${this.props.sidebarOpen ? 'open' : ''}`}
       >
         <List component="nav">
-          <ListItem button>
-            <ListItemText primary="Groups" />
-            <ListItemIcon className="ListItemIcon">
-              <GroupWork />
-            </ListItemIcon>
-          </ListItem>
+          <Link to="/dashboard/groups">
+            <ListItem button>
+              <ListItemText primary="Groups" />
+              <ListItemIcon className="ListItemIcon">
+                <GroupWork />
+              </ListItemIcon>
+            </ListItem>
+          </Link>
           <ListItem button>
             <ListItemText primary="Events" />
             <ListItemIcon className="ListItemIcon">
