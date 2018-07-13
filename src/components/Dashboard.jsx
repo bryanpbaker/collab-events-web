@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import { inject, observer } from 'mobx-react';
 // import components
 import DashboardHeader from './DashboardHeader';
 import Sidebar from './Sidebar';
 import MainContent from './MainContent';
-import Summary from './Summary';
+import Summary from './Summary/Summary';
 import Groups from './Groups';
 
 @inject('UserStore')

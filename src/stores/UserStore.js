@@ -1,4 +1,4 @@
-import { action, observable, autorun } from 'mobx';
+import { action, observable } from 'mobx';
 import UserService from '../services/UserService';
 
 class UserStore {
