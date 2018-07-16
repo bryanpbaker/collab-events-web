@@ -62,6 +62,9 @@ class UserStore {
     return false;
   };
 
+  /**
+   * log the user out (clear local storage)
+   */
   @action
   logout = async () => {
     localStorage.removeItem('authenticatedUser');

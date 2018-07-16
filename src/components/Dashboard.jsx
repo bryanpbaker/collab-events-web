@@ -5,7 +5,7 @@ import { inject, observer } from 'mobx-react';
 import DashboardHeader from './DashboardHeader';
 import Sidebar from './Sidebar';
 import MainContent from './MainContent';
-import Summary from './Summary/Summary';
+import Summary from './Summary';
 import Groups from './Groups';
 
 @inject('UserStore')
