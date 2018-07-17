@@ -3,8 +3,6 @@ import { inject, observer } from 'mobx-react';
 import styled from 'styled-components';
 // import material-ui component
 import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import Divider from '@material-ui/core/Divider';
 // import components
 import TitleSection from './TitleSection';
 import GroupCard from './GroupCard';
@@ -26,9 +24,7 @@ class Groups extends Component {
 
   renderGroupList = () => {
     return this.props.GroupStore.groups.map(group => (
-      <GroupCard key={group.name} button>
-        {group.name}
-      </GroupCard>
+      <GroupCard key={group.name} group={group} />
     ));
   };
 

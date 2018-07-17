@@ -7,7 +7,7 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import GroupWork from '@material-ui/icons/GroupWork';
+import People from '@material-ui/icons/People';
 import Event from '@material-ui/icons/Event';
 
 const StyledSidebar = styled.div`
@@ -49,7 +49,7 @@ class Sidebar extends Component {
             <ListItem button>
               <ListItemText primary="Groups" />
               <ListItemIcon className="ListItemIcon">
-                <GroupWork />
+                <People />
               </ListItemIcon>
             </ListItem>
           </Link>
