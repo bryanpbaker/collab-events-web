@@ -51,7 +51,7 @@ class Summary extends Component {
       return (
         <StyledSummary>
           <div className="upcoming-events">
-            <TitleSection userProfile={userProfile} />
+            <TitleSection content={userProfile} />
             <SummaryCardList
               headline="Upcoming Events"
               render={summaryCardList => (
