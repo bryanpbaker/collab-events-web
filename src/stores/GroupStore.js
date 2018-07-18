@@ -13,6 +13,11 @@ class GroupStore {
   fetchGroups = async () => {
     this.groups = await this.GroupService.fetchGroups();
   };
+
+  @action
+  createGroup = async () => {
+    alert('CREATE GROUP!');
+  };
 }
 
 export default new GroupStore();

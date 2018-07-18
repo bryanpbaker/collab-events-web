@@ -28,6 +28,10 @@ class Groups extends Component {
     ));
   };
 
+  createGroup = () => {
+    this.props.GroupStore.createGroup();
+  };
+
   render() {
     return (
       <StyledList>
@@ -35,6 +39,11 @@ class Groups extends Component {
           content={{
             title: 'Groups',
             subtitle: 'Here are your groups'
+          }}
+          action={{
+            method: this.createGroup,
+            type: 'add',
+            label: 'Create Group'
           }}
         />
         <div className="group-list">{this.renderGroupList()}</div>
